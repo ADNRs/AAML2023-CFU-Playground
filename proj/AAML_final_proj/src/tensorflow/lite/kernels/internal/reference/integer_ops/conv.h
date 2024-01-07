@@ -160,22 +160,6 @@ for (int m = 0; m < pad_M; m += W_tile) {                                   \
                                                                             \
 } while (false)
 
-inline int32_t SRDHM(int32_t a, int32_t b) {
-  bool overflow = *(uint32_t*)&a == 0x80000000 && *(uint32_t*)&b == 0x80000000;
-  int64_t ab_64 = (int64_t)a * (int64_t)b;
-  int32_t nudge = (ab_64 >> 63) & 1 ? 0xc0000001 : 0x40000000;
-  int64_t ab_64_nudge = ab_64 + nudge;
-  return overflow ? 0x7fffffff :
-    (ab_64_nudge >> 63) & 1 ? -(-ab_64_nudge >> 31) : ab_64_nudge >> 31;
-}
-
-inline int32_t RDBPOT(int32_t x, int32_t exp) {
-  const int32_t mask = (1 << exp) - 1;
-  const int32_t remainder = x & mask;
-  const int32_t threshold = (mask >> 1) + ((x >> 31) & 1);
-  return (x >> exp) + (remainder > threshold);
-}
-
 inline int32_t MultiplyByQuantizedMultiplier(int32_t x, int32_t quantized_multiplier,
                                            int32_t shift) {
   if (shift < 0) {
