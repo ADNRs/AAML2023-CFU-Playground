@@ -143,6 +143,9 @@ always @(posedge clk) begin
         A_wr_en_cfu <= 0; A_index_cfu <= ~0;
         B_wr_en_cfu <= 0; B_index_cfu <= ~0;
         C_wr_en_cfu <= 0; C_index_cfu <= 0;
+        writeinA_state <= 0;
+        writeinB_state <= 0;
+        readout_state <= 0;
     end else if (rsp_valid) begin
         rsp_valid <= ~rsp_ready;
     end else if (cmd_valid) begin
