@@ -1,4 +1,4 @@
-# AAML 2023 Final Project
+# Accelerating Convolutional Neural Network with Systolic Array and Manual Optimizations
 
 ## Team Member
 + 陳忠義 311551070
