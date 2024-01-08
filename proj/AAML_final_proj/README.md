@@ -4,6 +4,10 @@
 + 陳忠義 311551070
 + 林霆寬 311551079
 
+## Note
+
+Although it is very unlikely to happen, if the golden test fails, please `make prog` again. It is certainly due to poor placement and routing.
+
 ## Hardware Feature
 + A matrix multiplication unit
   + Backed by a 16×16 output stationary systolic array
@@ -22,3 +26,6 @@
 + Original: 4044074.545 μs
 + Pure software optimization: 1428413.2 μs (2.831x speedup)
 + With hardware acceleration: 406357.93 μs (9.952x speedup)
+
+## Supplementary Article
++ Available here: [link](https://yeecy.medium.com/在-cfu-playground-上加速-mlperf-tiny-影像分類模型-0-前言-a65b0c3a6a6b)
